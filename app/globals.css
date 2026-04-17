@@ -1,0 +1,287 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+:root {
+  /* ── BRAND ── */
+  --color-brand:            oklch(52% 0.24 268);
+  --color-brand-hover:      oklch(46% 0.26 268);
+  --color-brand-subtle:     oklch(95% 0.04 268);
+  --color-brand-glow:       oklch(52% 0.24 268 / 0.12);
+
+  /* ── SURFACES ── */
+  --color-bg:               oklch(99% 0.005 268);
+  --color-bg-transparent:   oklch(99% 0.005 268 / 0.88);
+  --color-bg-secondary:     oklch(96% 0.008 268);
+  --color-bg-tertiary:      oklch(93% 0.010 268);
+
+  /* ── TEXT ── */
+  --color-text-primary:     oklch(12% 0.012 268);
+  --color-text-secondary:   oklch(38% 0.018 268);
+  --color-text-muted:       oklch(58% 0.012 268);
+
+  /* ── BORDERS ── */
+  --color-border:           oklch(88% 0.010 268);
+  --color-border-strong:    oklch(75% 0.016 268);
+
+  /* ── ACCENT ── */
+  --color-accent:           oklch(62% 0.20 160);
+
+  /* ── SEMANTIC ── */
+  --color-success:          oklch(58% 0.18 145);
+  --color-warning:          oklch(70% 0.16 75);
+  --color-danger:           oklch(56% 0.22 25);
+
+  /* ── LAYER: AUTHORITY (purple) — Nav, Ticker, Hero ── */
+  --layer-authority:        oklch(52% 0.22 270);
+  --layer-authority-bg:     oklch(52% 0.22 270 / 0.05);
+  --layer-authority-border: oklch(52% 0.22 270 / 0.20);
+  --layer-authority-text:   oklch(42% 0.20 270);
+
+  /* ── LAYER: EVIDENCE (green) — Work, Log, R&D ── */
+  --layer-evidence:         oklch(42% 0.16 155);
+  --layer-evidence-bg:      oklch(42% 0.16 155 / 0.05);
+  --layer-evidence-border:  oklch(42% 0.16 155 / 0.20);
+  --layer-evidence-text:    oklch(34% 0.14 155);
+
+  /* ── LAYER: CONVERSION (amber) — Services, Contact, Chat ── */
+  --layer-conversion:       oklch(60% 0.16 52);
+  --layer-conversion-bg:    oklch(60% 0.16 52 / 0.05);
+  --layer-conversion-border:oklch(60% 0.16 52 / 0.20);
+  --layer-conversion-text:  oklch(42% 0.14 52);
+
+  /* ── SHAPE ── */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* ── SHADOWS ── */
+  --shadow-sm: 0 1px 3px oklch(0% 0 0 / 0.06);
+  --shadow-md: 0 4px 16px oklch(0% 0 0 / 0.08);
+  --shadow-lg: 0 12px 40px oklch(0% 0 0 / 0.12);
+
+  /* ── INDUSTRY COLORS ── */
+  --color-industry-hvac-bg: oklch(95% 0.04 268);
+  --color-industry-hvac-text: oklch(35% 0.22 268);
+  --color-industry-marine-bg: oklch(93% 0.06 220);
+  --color-industry-marine-text: oklch(30% 0.16 220);
+  --color-industry-cleaning-bg: oklch(94% 0.05 185);
+  --color-industry-cleaning-text: oklch(32% 0.14 185);
+  --color-industry-food-bg: oklch(95% 0.06 75);
+  --color-industry-food-text: oklch(35% 0.18 75);
+  --color-industry-pool-bg: oklch(94% 0.05 205);
+  --color-industry-pool-text: oklch(30% 0.14 205);
+  --color-industry-landscaping-bg: oklch(93% 0.06 145);
+  --color-industry-landscaping-text: oklch(32% 0.16 145);
+  --color-industry-plumbing-bg: oklch(93% 0.04 240);
+  --color-industry-plumbing-text: oklch(30% 0.12 240);
+  --color-industry-screen-bg: oklch(95% 0.05 290);
+  --color-industry-screen-text: oklch(35% 0.18 290);
+  --color-industry-pressure-bg: oklch(95% 0.06 55);
+  --color-industry-pressure-text: oklch(35% 0.18 55);
+  --color-industry-towing-bg: oklch(95% 0.06 25);
+  --color-industry-towing-text: oklch(35% 0.20 25);
+  --color-industry-stone-bg: oklch(94% 0.03 80);
+  --color-industry-stone-text: oklch(32% 0.08 80);
+  --color-industry-yacht-bg: oklch(93% 0.05 210);
+  --color-industry-yacht-text: oklch(30% 0.15 210);
+  --color-industry-corporate-bg: oklch(94% 0.01 268);
+  --color-industry-corporate-text: oklch(30% 0.04 268);
+  --color-industry-automation-bg: oklch(94% 0.05 160);
+  --color-industry-automation-text: oklch(32% 0.14 160);
+
+  /* ── TAG COLORS ── */
+  --color-tag-ai-bg: oklch(94% 0.06 160 / 0.3);
+  --color-tag-ai-text: oklch(32% 0.18 160);
+  --color-tag-mental-bg: oklch(94% 0.05 185 / 0.3);
+  --color-tag-mental-text: oklch(30% 0.14 185);
+  --color-tag-translation-bg: oklch(93% 0.06 220 / 0.3);
+  --color-tag-translation-text: oklch(30% 0.16 220);
+  --color-tag-workspace-bg: oklch(93% 0.06 145 / 0.3);
+  --color-tag-workspace-text: oklch(32% 0.16 145);
+
+  /* ── TYPOGRAPHY SCALE ── */
+  --text-xs:   clamp(0.70rem, 0.68rem + 0.10vw, 0.75rem);
+  --text-sm:   clamp(0.85rem, 0.82rem + 0.15vw, 0.875rem);
+  --text-base: clamp(1rem,    0.96rem + 0.20vw, 1.0625rem);
+  --text-lg:   clamp(1.1rem,  1.05rem + 0.25vw, 1.25rem);
+  --text-xl:   clamp(1.25rem, 1.15rem + 0.50vw, 1.5rem);
+  --text-2xl:  clamp(1.5rem,  1.30rem + 1.00vw, 2rem);
+  --text-3xl:  clamp(1.875rem,1.50rem + 1.875vw,2.5rem);
+  --text-4xl:  clamp(2.25rem, 1.75rem + 2.50vw, 3.5rem);
+  --text-5xl:  clamp(2.75rem, 2.00rem + 3.75vw, 4.5rem);
+
+  --leading-tight:  1.12;
+  --leading-normal: 1.60;
+  --leading-loose:  1.80;
+
+  --tracking-tight:  -0.03em;
+  --tracking-normal: -0.01em;
+  --tracking-wide:    0.06em;
+  --tracking-wider:   0.12em;
+
+  --nav-height: 60px;
+}
+
+.dark {
+  --color-brand:            oklch(66% 0.22 268);
+  --color-brand-hover:      oklch(72% 0.24 268);
+  --color-brand-subtle:     oklch(20% 0.06 268);
+  --color-brand-glow:       oklch(66% 0.22 268 / 0.15);
+
+  --color-bg:               oklch(10% 0.010 268);
+  --color-bg-transparent:   oklch(10% 0.010 268 / 0.88);
+  --color-bg-secondary:     oklch(14% 0.012 268);
+  --color-bg-tertiary:      oklch(18% 0.014 268);
+
+  --color-text-primary:     oklch(96% 0.006 268);
+  --color-text-secondary:   oklch(70% 0.014 268);
+  --color-text-muted:       oklch(50% 0.010 268);
+
+  --color-border:           oklch(22% 0.016 268);
+  --color-border-strong:    oklch(32% 0.020 268);
+
+  --color-accent:           oklch(68% 0.18 160);
+  --color-success:          oklch(62% 0.16 145);
+
+  --layer-authority:        oklch(70% 0.20 270);
+  --layer-authority-bg:     oklch(52% 0.22 270 / 0.08);
+  --layer-authority-border: oklch(52% 0.22 270 / 0.25);
+  --layer-authority-text:   oklch(75% 0.18 270);
+
+  --layer-evidence:         oklch(62% 0.14 155);
+  --layer-evidence-bg:      oklch(42% 0.16 155 / 0.08);
+  --layer-evidence-border:  oklch(42% 0.16 155 / 0.25);
+  --layer-evidence-text:    oklch(68% 0.12 155);
+
+  --layer-conversion:       oklch(72% 0.14 52);
+  --layer-conversion-bg:    oklch(60% 0.16 52 / 0.08);
+  --layer-conversion-border:oklch(60% 0.16 52 / 0.25);
+  --layer-conversion-text:  oklch(76% 0.12 52);
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text-primary);
+    background: var(--color-bg);
+    line-height: var(--leading-normal);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  :focus:not(:focus-visible) { outline: none; }
+}
+
+@layer utilities {
+  /* Skip navigation */
+  .skip-link {
+    position: absolute; top: -100%; left: 16px; z-index: 9999;
+    background: var(--color-brand); color: white;
+    padding: 8px 16px; border-radius: var(--radius-md);
+    font-size: var(--text-sm); font-weight: 600;
+    text-decoration: none; transition: top 0.1s;
+  }
+
+  .skip-link:focus { top: 16px; }
+
+  /* Animated link underline */
+  .link-underline { position: relative; text-decoration: none; }
+  .link-underline::after {
+    content: ''; position: absolute; bottom: -1px; left: 0;
+    width: 100%; height: 1px; background: currentColor;
+    transform: scaleX(0); transform-origin: right; transition: transform 250ms ease;
+  }
+  .link-underline:hover::after { transform: scaleX(1); transform-origin: left; }
+
+  /* Marquee Animation */
+  .animate-marquee {
+    animation: marquee 35s linear infinite;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Blink & Slide for Hero Scroll Indicator */
+  @keyframes blink-slide {
+    0% { transform: translateY(0); opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { transform: translateY(8px); opacity: 0.2; }
+  }
+  .animate-blink-slide {
+    animation: blink-slide 2s ease-in-out infinite;
+  }
+
+  /* Tactical Blueprint Pattern */
+  .bg-blueprint {
+    background-image: 
+      linear-gradient(var(--color-border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+  }
+
+  .bg-blueprint-dots {
+    background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* View Transitions — Theme Reveal */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 999;
+  animation: vt-reveal 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark::view-transition-old(root) {
+  z-index: 999;
+}
+
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+@keyframes vt-reveal {
+  from {
+    clip-path: circle(0% at var(--vt-x, 50%) var(--vt-y, 50%));
+  }
+  to {
+    clip-path: circle(150% at var(--vt-x, 50%) var(--vt-y, 50%));
+  }
+}

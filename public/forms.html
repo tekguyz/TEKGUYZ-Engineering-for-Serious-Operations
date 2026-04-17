@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEKGUYZ Forms</title>
+</head>
+<body>
+    <!-- This file is for Netlify Form detection only -->
+    <form 
+        name="contact" 
+        data-netlify="true" 
+        netlify-honeypot="bot-field" 
+        action="/forms.html" 
+        method="POST" 
+        encType="multipart/form-data"
+    >
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="text" name="bot-field" />
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="radio" name="project_type" value="New Website" />
+        <input type="radio" name="project_type" value="AI Integration" />
+        <input type="radio" name="project_type" value="Full-Stack App" />
+        <input type="radio" name="project_type" value="Not Sure Yet" />
+        <input type="radio" name="budget" value="Under $2K" />
+        <input type="radio" name="budget" value="$2K–$5K" />
+        <input type="radio" name="budget" value="$5K–$15K" />
+        <input type="radio" name="budget" value="$15K+" />
+        <textarea name="message"></textarea>
+    </form>
+</body>
+</html>
