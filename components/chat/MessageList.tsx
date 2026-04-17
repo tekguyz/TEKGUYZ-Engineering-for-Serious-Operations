@@ -90,6 +90,8 @@ export function MessageList({ messages, isLoading, onSuggestionClick }: Props) {
                 <div className="h-2 w-2 animate-bounce rounded-full bg-[var(--layer-conversion)]" style={{ animationDelay: '300ms' }} />
               </div>
             </div>
+              </div>
+            </div>
           </div>
         )}
         <div ref={messagesEndRef} />
