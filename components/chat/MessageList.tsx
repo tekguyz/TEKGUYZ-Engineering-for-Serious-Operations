@@ -79,16 +79,24 @@ export function MessageList({ messages, isLoading, onSuggestionClick }: Props) {
         })}
 
         {isLoading && (
-...
           <>
             <span className="ml-2 text-[10px] font-medium uppercase tracking-wider text-[var(--color-text-muted)]">
               Strategist is thinking...
             </span>
             <div className="rounded-[18px_18px_18px_4px] border border-[var(--color-border)] bg-[var(--color-bg-secondary)] px-4 py-3">
               <div className="flex gap-1.5">
-                <div className="h-2 w-2 animate-bounce rounded-full bg-[var(--layer-conversion)]" style={{ animationDelay: '0ms' }} />
-                <div className="h-2 w-2 animate-bounce rounded-full bg-[var(--layer-conversion)]" style={{ animationDelay: '150ms' }} />
-                <div className="h-2 w-2 animate-bounce rounded-full bg-[var(--layer-conversion)]" style={{ animationDelay: '300ms' }} />
+                <div 
+                  className="h-2 w-2 animate-bounce rounded-full bg-[var(--layer-conversion)]" 
+                  style={{ animationDelay: '0ms' }} 
+                />
+                <div 
+                  className="h-2 w-2 animate-bounce rounded-full bg-[var(--layer-conversion)]" 
+                  style={{ animationDelay: '150ms' }} 
+                />
+                <div 
+                  className="h-2 w-2 animate-bounce rounded-full bg-[var(--layer-conversion)]" 
+                  style={{ animationDelay: '300ms' }} 
+                />
               </div>
             </div>
           </>
