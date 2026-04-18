@@ -17,6 +17,17 @@ export function useChatEngine(initialMessages: Message[] = []) {
   const [isLoading, setIsLoading] = useState(false);
   const [messageCount, setMessageCount] = useState(0);
 
+  const parseMessage = (text: string): { content: string; suggestions: string[] } => {
+    const suggestionRegex = /\[([^\]]+)\]/g;
+    const suggestions: string[] = [];
+    let content = text.replace(suggestionRegex, (_, p1) => {
+      suggestions.push(p1.trim());
+      return '';
+    }).trim();
+    
+    return { content, suggestions };
+  };
+
   const submitMessage = async (textOverride?: string) => {
     const text = textOverride || input;
     if (!text.trim() || isLoading || messageCount >= 30) return;
@@ -28,10 +39,14 @@ export function useChatEngine(initialMessages: Message[] = []) {
     setMessageCount((prev) => prev + 1);
 
     try {
+      const pageContext = typeof window !== 'undefined' ? window.location.href : 'Unknown';
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: newMessages })
+        body: JSON.stringify({ 
+            messages: newMessages.map(m => ({ role: m.role, content: m.content })),
+            context: pageContext
+        })
       });
       
       if (!res.ok) {
@@ -39,14 +54,7 @@ export function useChatEngine(initialMessages: Message[] = []) {
       }
 
       const data: ChatAPIResponse = await res.json();
-      
-      // Extract suggestions from bracketed text [Suggestion]
-      const suggestions: string[] = [];
-      const content = data.message.replace(/\[([^\]]+)\]/g, (_, p1) => {
-        suggestions.push(p1.trim());
-        return '';
-      }).trim();
-
+      const { content, suggestions } = parseMessage(data.message);
       setMessages([...newMessages, { role: 'assistant', content, suggestions }]);
     } catch (error) {
       console.error('[CHAT_ENGINE_ERROR]', error);

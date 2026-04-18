@@ -46,7 +46,7 @@ export interface ChatAPIResponse {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { messages } = body;
+    const { messages, context } = body;
 
     if (!Array.isArray(messages) || messages.length === 0) {
       return Response.json({ error: "Invalid or empty messages array" }, { status: 400 });
@@ -61,6 +61,12 @@ export async function POST(request: Request) {
       return Response.json(res);
     }
 
+    // Append context to instructions
+    let finalInstruction = SYSTEM_PROMPT;
+    if (context) {
+      finalInstruction += `\nCURRENT USER CONTEXT: The user is currently browsing this URL/section: ${context}`;
+    }
+
     // Using the latest @google/genai SDK on the server for security and performance
     const ai = new GoogleGenAI({ apiKey });
     
@@ -71,7 +77,7 @@ export async function POST(request: Request) {
         parts: [{ text: msg.content }]
       })),
       config: {
-        systemInstruction: SYSTEM_PROMPT,
+        systemInstruction: finalInstruction,
         temperature: 0.7,
         maxOutputTokens: 800,
       }

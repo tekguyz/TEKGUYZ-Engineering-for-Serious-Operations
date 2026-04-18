@@ -6,7 +6,7 @@ import { useNetlifyForm } from '@/hooks/useNetlifyForm';
 import { FormRadioGroup } from './FormRadioGroup';
 import { fadeIn } from '@/lib/motion';
 
-const REQUEST_TYPES = ['Website or Platform', 'Client Portal / System', 'AI or Automation', 'Not sure yet'];
+const REQUEST_TYPES = ['Automate manual work', 'Build a client portal', 'Upgrade our web platform', 'Not sure yet'];
 
 export function ContactForm() {
   const { isSubmitting, isSuccess, error, setError, submitForm } = useNetlifyForm();
@@ -84,48 +84,34 @@ export function ContactForm() {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="flex flex-col gap-1.5">
           <label htmlFor="name" className="text-[var(--text-xs)] font-[600] uppercase tracking-[var(--tracking-wider)] text-[var(--color-text-secondary)]">
-            Who is this?
+            Name
           </label>
           <input
             type="text"
             id="name"
             name="name"
             required
-            placeholder="Your name"
+            placeholder="Name or company"
             className="w-full rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg)] px-3.5 py-2.5 text-[var(--text-sm)] text-[var(--color-text-primary)] transition-colors focus:border-[var(--color-brand)] focus:shadow-[0_0_0_3px_var(--color-brand-glow)] focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-1.5">
-          <label htmlFor="company" className="text-[var(--text-xs)] font-[600] uppercase tracking-[var(--tracking-wider)] text-[var(--color-text-secondary)]">
-            What is your business called?
+          <label htmlFor="email" className="text-[var(--text-xs)] font-[600] uppercase tracking-[var(--tracking-wider)] text-[var(--color-text-secondary)]">
+            Email
           </label>
           <input
-            type="text"
-            id="company"
-            name="company"
+            type="email"
+            id="email"
+            name="email"
             required
-            placeholder="Company name"
+            placeholder="you@company.com"
             className="w-full rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg)] px-3.5 py-2.5 text-[var(--text-sm)] text-[var(--color-text-primary)] transition-colors focus:border-[var(--color-brand)] focus:shadow-[0_0_0_3px_var(--color-brand-glow)] focus:outline-none"
           />
         </div>
       </div>
 
-      <div className="flex flex-col gap-1.5">
-        <label htmlFor="email" className="text-[var(--text-xs)] font-[600] uppercase tracking-[var(--tracking-wider)] text-[var(--color-text-secondary)]">
-          Where should we reply?
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          placeholder="you@company.com"
-          className="w-full rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg)] px-3.5 py-2.5 text-[var(--text-sm)] text-[var(--color-text-primary)] transition-colors focus:border-[var(--color-brand)] focus:shadow-[0_0_0_3px_var(--color-brand-glow)] focus:outline-none"
-        />
-      </div>
-
       <FormRadioGroup
-        label="What is the scale of this project?"
+        label="What is your primary goal?"
         options={REQUEST_TYPES}
         value={requestType}
         onChange={setRequestType}
@@ -141,7 +127,7 @@ export function ContactForm() {
           name="message"
           required
           rows={4}
-          placeholder="Describe the system or problem you need us to solve."
+          placeholder="What problem are we solving?"
           className="w-full resize-y rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg)] px-3.5 py-2.5 text-[var(--text-sm)] text-[var(--color-text-primary)] transition-colors focus:border-[var(--color-brand)] focus:shadow-[0_0_0_3px_var(--color-brand-glow)] focus:outline-none"
         />
       </div>
